@@ -27,6 +27,12 @@ public class Orders {
 	private int bid;
 	
 	
+	 // @ManyToOne(mappedBy = "o");
+	 // private Set<Users> OUsers;
+	
+	 // @ManyToOne(mappedBy = "bo");
+	 // private Set<Books> OBooks;
+	
 	public Orders() {
 
 	}

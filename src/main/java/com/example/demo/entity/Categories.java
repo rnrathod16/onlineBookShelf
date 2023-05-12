@@ -23,14 +23,14 @@ public class Categories {
 	@Column(name="cname")
 	private String cname;
 	
-	@OneToMany(mappedBy = "categories")
-	private Set<Books> books;
+	@OneToMany(mappedBy = "bc")
+	private Set<Books> Cbooks;
 
 	public Categories(int cid, String cname, Set<Books> books) {
 		super();
 		this.cid = cid;
 		this.cname = cname;
-		this.books = books;
+		this.Cbooks = books;
 	}
 
 	public Categories() {
@@ -55,16 +55,16 @@ public class Categories {
 	}
 
 	public Set<Books> getBooks() {
-		return books;
+		return Cbooks;
 	}
 
 	public void setBooks(Set<Books> books) {
-		this.books = books;
+		this.Cbooks = books;
 	}
 
 	@Override
 	public String toString() {
-		return "Categories [cid=" + cid + ", cname=" + cname + ", books=" + books + "]";
+		return "Categories [cid=" + cid + ", cname=" + cname + ", books=" + Cbooks + "]";
 	}
 	
 	

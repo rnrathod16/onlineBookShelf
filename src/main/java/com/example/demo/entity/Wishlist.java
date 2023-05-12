@@ -13,7 +13,11 @@ public class Wishlist
 	private int uid;
 	
 	
+	// @ManyToOne(mappedBy = "w");
+	// private Set<Users> users;
 	
+	//@ManyToOne(mappedBy = "bw");
+	//private Set<Books> books;
 	
 	public Wishlist(int bid, int uid) {
 		super();
