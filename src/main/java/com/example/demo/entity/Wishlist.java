@@ -12,7 +12,7 @@ public class Wishlist
 	@Column(name="bid")
 	private int uid;
 	
-	@OneToOne(mappedBy = "Books")
+	
 	
 	
 	public Wishlist(int bid, int uid) {
