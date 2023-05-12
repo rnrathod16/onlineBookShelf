@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.demo.entity.Books;
 import com.example.demo.entity.Users;
+import com.example.demo.entity.Wishlist;
 
 public interface Service_Declarations {
 	
@@ -23,7 +24,9 @@ public interface Service_Declarations {
 	
 	//Users
 	
+	public void addWishlistById(Wishlist wishlist);
 //	public List<Books> searchBook(String general);
+	public List<Wishlist> displayWishList();
 	
 	
 }

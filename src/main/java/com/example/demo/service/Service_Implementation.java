@@ -9,16 +9,20 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Books;
 import com.example.demo.entity.Users;
+import com.example.demo.entity.Wishlist;
 import com.example.demo.persistance.BooksRepository;
+import com.example.demo.persistance.WishlistRepository;
 
 @Service
 public class Service_Implementation implements Service_Declarations{
 	
 	private BooksRepository br;
+	private WishlistRepository wl;
 	@Autowired
-	public Service_Implementation(BooksRepository br) {
+	public Service_Implementation(BooksRepository br,WishlistRepository wl) {
 
 		this.br=br;
+		this.wl=wl;
 	}
 
 	@Override
@@ -46,8 +50,10 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public void deleteBookById(int bid) {
 		// TODO Auto-generated method stub
+		br.deleteById(bid);
 		
 	}
 
@@ -75,6 +81,21 @@ public class Service_Implementation implements Service_Declarations{
 		// TODO Auto-generated method stub
 		return br.findAll();
 	}
+
+	@Override
+	@Transactional
+	public void addWishlistById(Wishlist wishlist) {
+		// TODO Auto-generated method stub
+		wl.save(wishlist);		
+	}
+
+	@Override
+	public List<Wishlist> displayWishList() {
+		// TODO Auto-generated method stub
+		return wl.findAll();
+	}
+	
+	
 	
 	
 }
