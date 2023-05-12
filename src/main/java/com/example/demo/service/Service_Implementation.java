@@ -2,10 +2,24 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.demo.entity.Books;
 import com.example.demo.entity.Users;
+import com.example.demo.persistance.BooksRepository;
 
+@Service
 public class Service_Implementation implements Service_Declarations{
+	
+	private BooksRepository br;
+	@Autowired
+	public Service_Implementation(BooksRepository br) {
+
+		this.br=br;
+	}
 
 	@Override
 	public boolean login(String uemail, String upassword) {
@@ -53,6 +67,13 @@ public class Service_Implementation implements Service_Declarations{
 	public void addBookByCategory(Books book, int cid) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	@Transactional
+	public List<Books> displayBooks() {
+		// TODO Auto-generated method stub
+		return br.findAll();
 	}
 	
 	

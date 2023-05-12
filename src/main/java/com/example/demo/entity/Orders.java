@@ -30,7 +30,7 @@ public class Orders {
 	private int bid;
 	
 		
-	@ManyToOne(targetEntity =Categories.class,fetch = FetchType.EAGER)
+	@ManyToOne(targetEntity =Books.class,fetch = FetchType.EAGER)
 	@JoinColumn(name="bid",insertable = false,updatable = false)
 	private Books o;
 	

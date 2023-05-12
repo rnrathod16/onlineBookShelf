@@ -8,7 +8,10 @@ import javax.persistence.*;
 @Table(name="Wishlist")
 public class Wishlist 
 {
-	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "wishid")
+    private int wishid;
 	@Column(name="uid")
 	private int uid;
 	@Column(name="bid")

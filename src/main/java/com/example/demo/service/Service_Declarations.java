@@ -11,7 +11,7 @@ public interface Service_Declarations {
 	public void register(Users user);
 	
 	//Admin
-	
+	public List<Books> displayBooks();
 	public void addBook(Books book);
 	public void updateBook(Books book);
 	

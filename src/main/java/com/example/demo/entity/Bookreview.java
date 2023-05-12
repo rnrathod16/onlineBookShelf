@@ -5,7 +5,7 @@ import com.example.demo.entity.Users;
 import com.example.demo.entity.*;
 
 @Entity
-@Table(name = "bookreview")
+@Table(name = "Bookreview")
 public class Bookreview 
 {
 	@Id
