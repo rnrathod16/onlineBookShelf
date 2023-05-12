@@ -2,9 +2,12 @@ package com.example.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,12 +29,20 @@ public class Orders {
 	@Column(name="bid")
 	private int bid;
 	
+		
+	@ManyToOne(targetEntity =Categories.class,fetch = FetchType.EAGER)
+	@JoinColumn(name="bid",insertable = false,updatable = false)
+	private Books o;
 	
-	 // @ManyToOne(mappedBy = "o");
-	 // private Set<Users> OUsers;
+	@ManyToOne(targetEntity =Users.class,fetch = FetchType.EAGER)
+	@JoinColumn(name="uid",insertable = false,updatable = false)
+	private Orders ord;
 	
-	 // @ManyToOne(mappedBy = "bo");
-	 // private Set<Books> OBooks;
+//	  @ManyToOne(mappedBy = "o");
+//	  private Set<Users> OUsers;
+//	
+//	  @ManyToOne(mappedBy = "bo");
+//	  private Set<Books> OBooks;
 	
 	public Orders() {
 

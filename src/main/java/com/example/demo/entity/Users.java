@@ -1,4 +1,6 @@
 package com.example.demo.entity;
+import java.util.Set;
+
 import javax.persistence.*;
 @Entity
 @Table(name = "Users")
@@ -24,17 +26,26 @@ public class Users {
 	    @Column(name = "ucountry")
 	    private String ucountry;
 	    
-	    //@OneToMany(targetEntity = "Wishlist.class", fetch = FetchType.EAGER);
-	    //@JoinColumn(name = "uid", insertable = false, updatable = false)
-		//private Wishlist w;
+		@OneToMany(mappedBy="wi")
+		private Set<Wishlist> wish2;
+		
+		@OneToMany(mappedBy="ord")
+		private Set<Orders> ordr;
+		
+		@OneToMany(mappedBy="brev")
+		private Set<Bookreview> bookrevi;
 	    
-	  //@OneToMany(targetEntity = "Orders.class", fetch = FetchType.EAGER);
-	  //@JoinColumn(name = "uid", insertable = false, updatable = false)
-		//private Orders o;
-
-	    
-	   // @OneToMany(mappedBy = "u");
-	   // private Set<Bookreview> bookreviews
+//	    @OneToMany(targetEntity = "Wishlist.class", fetch = FetchType.EAGER);
+//	    @JoinColumn(name = "uid", insertable = false, updatable = false)
+//		private Wishlist w;
+//	    
+//	  @OneToMany(targetEntity = "Orders.class", fetch = FetchType.EAGER);
+//	  @JoinColumn(name = "uid", insertable = false, updatable = false)
+//		private Orders o;
+//
+//	    
+//	    @OneToMany(mappedBy = "u");
+//	    private Set<Bookreview> bookreviews;
 	    
 		public Users() {
 			super();

@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import javax.persistence.*;
+import com.example.demo.entity.Users;
+import com.example.demo.entity.*;
 
 @Entity
 @Table(name = "bookreview")
@@ -20,13 +22,17 @@ public class Bookreview
 	@Column(name = "uid")
 	private int uid;
 	
-	//@ManyToOne(targetEntity = Books.class, fetch = FetchType.EAGER)
-	//@JoinColumn(name = "bid", insertable = false, updatable = false)
-	//private Books b;
+	@ManyToOne(targetEntity = Books.class, fetch = FetchType.EAGER)
+	@JoinColumn(name = "bid", insertable = false, updatable = false)
+	private Books br;
 	
-	//@ManyToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
-	//@JoinColumn(name = "uid", insertable = false, updatable = false)
-	//private Users u;
+	@ManyToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
+	@JoinColumn(name = "uid", insertable = false, updatable = false)
+	private Users brev;
+	
+//	@ManyToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "uid", insertable = false, updatable = false)
+//	private Users u;
 	
 	public Bookreview(int reviewid, String reviewdesc, int bid, int uid) {
 		

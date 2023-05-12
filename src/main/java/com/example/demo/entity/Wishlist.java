@@ -1,23 +1,40 @@
 package com.example.demo.entity;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="wishlist")
+@Table(name="Wishlist")
 public class Wishlist 
 {
 	
+	@Column(name="uid")
+	private int uid;
 	@Column(name="bid")
 	private int bid;
-	@Column(name="bid")
-	private int uid;
 	
 	
-	// @ManyToOne(mappedBy = "w");
-	// private Set<Users> users;
+	@ManyToOne(targetEntity =Books.class,fetch = FetchType.EAGER)
+	@JoinColumn(name="bid",insertable = false,updatable = false)
+	private Books w;
 	
-	//@ManyToOne(mappedBy = "bw");
-	//private Set<Books> books;
+	@ManyToOne(targetEntity =Users.class,fetch = FetchType.EAGER)
+	@JoinColumn(name="uid",insertable = false,updatable = false)
+	private Users wi;
+	
+//	@ManyToOne(targetEntity =Department.class,fetch = FetchType.EAGER)
+//	@JoinColumn(name="dept_id",insertable = false,updatable = false)
+//	private Department department;
+	
+//	 @ManyToOne(mappedBy = "w");
+//	 private Set<Users> users;
+	
+//	 @ManyToOne(mappedBy = "w");
+//	 private Set<Users> users;
+	
+//	@ManyToOne(mappedBy = "bw");
+//	private Set<Books> books;
 	
 	public Wishlist(int bid, int uid) {
 		super();

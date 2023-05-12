@@ -40,20 +40,39 @@ public class Books {
 	@Column(name="cid")
 	private int cid;
 	
-	//@OneToMany(targetEntity = Wishlist.class, fetch = FetchType.EAGER)
-	//@JoinColumn(name = "bid", insertable = false, updatable = false)
-	//private Wishlist bw;
 	
-	//@OneToMany(targetEntity = Orders.class, fetch = FetchType.EAGER)
-	//@JoinColumn(name = "bid", insertable = false, updatable = false)
-	//private Orders bo;
+//	@OneToMany(mappedBy = "blc");
+//	private Set<Bookreview> bookreviews;
 	
-	//@ManyToOne(targetEntity = Categories.class, fetch = FetchType.EAGER)
-	//@JoinColumn(name = "cid", insertable = false, updatable = false)
-	//private Categories bc;
+	@ManyToOne(targetEntity =Categories.class,fetch = FetchType.EAGER)
+	@JoinColumn(name="cid",insertable = false,updatable = false)
+	private Categories bc;
 	
-	//@OneToMany(mappedBy = "b");
-	//private Set<Bookreview> bookreviews;
+	@OneToMany(mappedBy="br")
+	private Set<Bookreview> bookreviews;
+	
+	@OneToMany(mappedBy="o")
+	private Set<Orders> userorders;
+	
+	@OneToMany(mappedBy="w")
+	private Set<Wishlist> wish;
+	
+	
+	
+//	@OneToMany(targetEntity = Wishlist.class, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "bid", insertable = false, updatable = false)
+//	private Wishlist bw;
+//	
+//	@OneToMany(targetEntity = Orders.class, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "bid", insertable = false, updatable = false)
+//	private Orders bo;
+//	
+//	@ManyToOne(targetEntity = Categories.class, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "cid", insertable = false, updatable = false)
+//	private Categories bc;
+	
+//	@OneToMany(mappedBy = "b");
+//	private Set<Bookreview> bookreviews;
 	
 	public Books() {
 		
