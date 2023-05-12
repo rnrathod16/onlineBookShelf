@@ -62,11 +62,11 @@ public class Shop_Controller {
 		si.deleteBookById(id);
 	}
 	
-//	@PostMapping("wish")
-//	public void addWishList(@RequestBody Wishlist wl) {
-//		
-//		si.addWishlistById(wl);		
-//	}
+	@PostMapping("wish")
+	public void addWishList(@RequestBody Wishlist wl) {
+		
+		si.addToWishlist(wl);		
+	}
 	
 	@GetMapping("wish")
 	public List<Wishlist> findAllwish(){
@@ -104,5 +104,10 @@ public class Shop_Controller {
 	public List<Books> getByCategory(@PathVariable("cat") int cat){
 		return si.searchByCategory(cat);
 
+	}
+	
+	@PutMapping("updateStock")
+	public void updateStock(@RequestBody Books b) {
+		si.addStockToBooks(b.getBstock(), b.getBid());
 	}
 }

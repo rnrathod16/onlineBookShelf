@@ -19,14 +19,14 @@ public interface Service_Declarations {
 	public void addByCategories(Books book);
 	
 	public void deleteBookById(int bid);
-	public void addStockToBooks(int bid);
+	public void addStockToBooks(int q,int bid);
 	
 	public List<Books> searchByCategory(int cid);
 	public void addBookByCategory(Books book, int cid);
 	
 	
 
-	public void addWishlistById(Wishlist wishlist);
+	public void addToWishlist(Wishlist wishlist);
 
 	//Users
 	public List<Users> displayUsers();

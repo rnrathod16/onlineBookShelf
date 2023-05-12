@@ -88,10 +88,10 @@ public class Service_Implementation implements Service_Declarations{
 
 	@Override
 	@Transactional
-	public void addStockToBooks(int bid) 
+	public void addStockToBooks(int q,int bid) 
 	{
 		// TODO Auto-generated method stub
-		
+		br.addStockToBook(q, bid);
 		
 	}
 
@@ -117,7 +117,7 @@ public class Service_Implementation implements Service_Declarations{
 
 	@Override
 	@Transactional
-	public void addWishlistById(Wishlist wishlist) {
+	public void addToWishlist(Wishlist wishlist) {
 		// TODO Auto-generated method stub
 		wl.save(wishlist);		
 	}
