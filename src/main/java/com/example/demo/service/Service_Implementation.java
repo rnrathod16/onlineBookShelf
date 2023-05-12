@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.entity.Books;
 import com.example.demo.entity.Users;
@@ -40,9 +41,10 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
-	public void updateBook(Books book) {
+	@Transactional
+	public void updateBook( Books b) {
 		// TODO Auto-generated method stub
-		
+		br.save(b);
 	}
 
 	@Override
@@ -52,15 +54,17 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
-	public void addStockToBooks(int bid) {
+	public void addStockToBooks(int bid) 
+	{
 		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public List<Books> searchByCategory(int cid) {
 		// TODO Auto-generated method stub
-		return null;
+		return br.findByCid(cid);
 	}
 
 	@Override
