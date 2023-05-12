@@ -23,7 +23,18 @@ public class Users {
 	    
 	    @Column(name = "ucountry")
 	    private String ucountry;
+	    
+	    //@OneToMany(targetEntity = "Wishlist.class", fetch = FetchType.EAGER);
+	    //@JoinColumn(name = "uid", insertable = false, updatable = false)
+		//private Wishlist w;
+	    
+	  //@OneToMany(targetEntity = "Orders.class", fetch = FetchType.EAGER);
+	  //@JoinColumn(name = "uid", insertable = false, updatable = false)
+		//private Orders o;
 
+	    
+	   // @OneToMany(mappedBy = "u");
+	   // private Set<Bookreview> bookreviews
 	    
 		public Users() {
 			super();

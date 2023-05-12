@@ -22,9 +22,11 @@ public class Bookreview
 	
 	//@ManyToOne(targetEntity = Books.class, fetch = FetchType.EAGER)
 	//@JoinColumn(name = "bid", insertable = false, updatable = false)
+	//private Books b;
 	
 	//@ManyToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
 	//@JoinColumn(name = "uid", insertable = false, updatable = false)
+	//private Users u;
 	
 	public Bookreview(int reviewid, String reviewdesc, int bid, int uid) {
 		
