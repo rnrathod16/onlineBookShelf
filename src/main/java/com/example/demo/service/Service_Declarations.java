@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.entity.Books;
+import com.example.demo.entity.Orders;
 import com.example.demo.entity.Users;
 
 public interface Service_Declarations {
@@ -22,8 +23,10 @@ public interface Service_Declarations {
 	public List<Books> searchByCategory(int cid);
 	public void addBookByCategory(Books book, int cid);
 	
-	//Users
 	
+	//Users
+	public List<Users> displayUsers();
+	public List<Orders> historyOfOrders(int uid); 
 //	public List<Books> searchBook(String general);
 	
 	

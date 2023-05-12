@@ -36,7 +36,7 @@ public class Orders {
 	
 	@ManyToOne(targetEntity =Users.class,fetch = FetchType.EAGER)
 	@JoinColumn(name="uid",insertable = false,updatable = false)
-	private Orders ord;
+	private Users ord;
 	
 //	  @ManyToOne(mappedBy = "o");
 //	  private Set<Users> OUsers;
