@@ -1,11 +1,13 @@
 package com.example.demo.controller;
 
+import java.awt.print.Book;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +32,7 @@ public class Shop_Controller {
 	public List<Books> findAll(){
 		return si.displayBooks();
 	}
-	
+
 	@GetMapping("list/users")
 	public List<Users> findAllUsers(){
 		return si.displayUsers();
@@ -49,5 +51,17 @@ public class Shop_Controller {
 	@GetMapping("list/users/orders/{uid}")
 	public List<Orders> orderHis(@PathVariable("uid") int uid) {
 		return si.historyOfOrders(uid);
+
+	}
+	
+	@PutMapping("updateBook")
+	public void updateBook(@RequestBody Books b)
+	{
+		si.updateBook(b);
+	}
+	
+	@GetMapping("booksbycategories/{cat}")
+	public List<Books> getByCategory(@PathVariable("cat") int cat){
+		return si.searchByCategory(cat);
 	}
 }

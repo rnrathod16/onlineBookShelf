@@ -45,7 +45,7 @@ public class Books {
 //	private Set<Bookreview> bookreviews;
 	
 	@ManyToOne(targetEntity =Categories.class,fetch = FetchType.EAGER)
-	@JoinColumn(name="cid",insertable = false,updatable = false)
+	@JoinColumn(name="cid",insertable = false, updatable = false)
 	private Categories bc;
 	
 	@OneToMany(mappedBy="br")
