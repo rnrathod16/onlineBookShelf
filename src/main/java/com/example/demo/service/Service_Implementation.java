@@ -26,21 +26,15 @@ public class Service_Implementation implements Service_Declarations{
 	private BooksRepository br;
 
 	private WishlistRepository wl;
-	@Autowired
-	public Service_Implementation(BooksRepository br,WishlistRepository wl) {
-
-		this.br=br;
-		this.wl=wl;
-	}
-
 	private UserRepository ur;
 	private OrdersRepository or;
 	@Autowired
-	public Service_Implementation(BooksRepository br,UserRepository ur,OrdersRepository or) {
+	public Service_Implementation(BooksRepository br,UserRepository ur,OrdersRepository or,WishlistRepository wl) {
 
 		this.br=br;
 		this.ur=ur;
 		this.or=or;
+		this.wl=wl;
 
 	}
 
@@ -63,6 +57,7 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public void addBook(Books book) 
 	{
 		br.save(book);
@@ -92,6 +87,7 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public void addStockToBooks(int bid) 
 	{
 		// TODO Auto-generated method stub
@@ -100,6 +96,7 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public List<Books> searchByCategory(int cid) {
 		// TODO Auto-generated method stub
 		return br.findByCid(cid);
@@ -119,7 +116,6 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
-
 	@Transactional
 	public void addWishlistById(Wishlist wishlist) {
 		// TODO Auto-generated method stub
@@ -127,19 +123,21 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public List<Wishlist> displayWishList() {
 		// TODO Auto-generated method stub
 		return wl.findAll();
 	}
 	
-	
-
+	@Override
+	@Transactional
 	public List<Users> displayUsers() {
 		// TODO Auto-generated method stub
 		return ur.findAll();
 	}
 
 	@Override
+	@Transactional
 	public List<Orders> historyOfOrders(int uid) {
 		// TODO Auto-generated method stub
 		return or.orderHistory(uid);
