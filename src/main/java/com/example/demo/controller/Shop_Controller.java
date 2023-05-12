@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +27,21 @@ public class Shop_Controller {
 	@GetMapping("list")
 	public List<Books> findAll(){
 		return si.displayBooks();
+	}
+	
+	@PostMapping("list")
+	public void insertBook(@RequestBody Books br )
+	{
+		br.setBid(0);
+		si.addBook(br);
+		
+	}
+	@PostMapping("list1")
+	public void insertByCategories(@RequestBody Books br )
+	{
+		br.setBid(0);
+		
+		si.addBook(br);
+		
 	}
 }

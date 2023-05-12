@@ -34,8 +34,16 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
-	public void addBook(Books book) {
-		// TODO Auto-generated method stub
+	public void addBook(Books book) 
+	{
+		br.save(book);
+		
+	}
+	@Override
+	@Transactional
+	public void addByCategories(Books book) 
+	{
+		br.save(book);
 		
 	}
 
