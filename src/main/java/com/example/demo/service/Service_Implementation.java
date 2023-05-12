@@ -54,10 +54,10 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
-	public void addStockToBooks(int bid) 
+	public void addStockToBooks(int q, int bid) 
 	{
 		// TODO Auto-generated method stub
-		
+		br.updateStocks(q, bid);
 		
 	}
 
@@ -70,7 +70,6 @@ public class Service_Implementation implements Service_Declarations{
 	@Override
 	public void addBookByCategory(Books book, int cid) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

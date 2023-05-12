@@ -16,7 +16,7 @@ public interface Service_Declarations {
 	public void updateBook(Books book);
 	
 	public void deleteBookById(int bid);
-	public void addStockToBooks(int bid);
+	public void addStockToBooks(int q, int bid);
 	
 	public List<Books> searchByCategory(int cid);
 	public void addBookByCategory(Books book, int cid);
