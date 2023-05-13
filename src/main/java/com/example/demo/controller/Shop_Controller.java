@@ -93,6 +93,10 @@ public class Shop_Controller {
 	public Users login(@RequestBody Users user) {
 		return si.login(user.getUemail(), user.getUpassword());
 	}
+	@PostMapping("getuser")
+	public int searchByEmail(@RequestBody Users user) {
+		return si.searchUserByEmail(user.getUemail());
+	}
 	
 	@GetMapping("list/users/orders/{uid}")
 	public List<Orders> orderHis(@PathVariable("uid") int uid) {
@@ -146,4 +150,5 @@ public class Shop_Controller {
 	public void insertCatogery(@RequestBody Categories categories) {
 		si.addCategory(categories);
 	}
+	
 }

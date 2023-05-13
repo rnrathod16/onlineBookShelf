@@ -12,5 +12,8 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
 	@Query("from Users where uemail=?1 and upassword=?2")
 	public Users checkLogin(String uemail,String upassword);
 	
+	String s = "select count(uemail) from Users where uemail=?1";
+	@Query(s)
+	public int searchByEmail(String email);
 	
 }

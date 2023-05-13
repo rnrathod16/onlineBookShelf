@@ -45,5 +45,6 @@ public interface Service_Declarations {
 //	public List<Books> searchBook(String general);
 	public List<Wishlist> displayWishList();
 	public void deleteWishListById(int wid);
+	public int searchUserByEmail(String email);
 	
 }

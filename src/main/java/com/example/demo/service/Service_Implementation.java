@@ -198,6 +198,13 @@ public class Service_Implementation implements Service_Declarations{
 		
 	}
 
+	@Override
+	public int searchUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		System.out.println(ur.searchByEmail(email));
+		return ur.searchByEmail(email);
+	}
+
 
 
 	
