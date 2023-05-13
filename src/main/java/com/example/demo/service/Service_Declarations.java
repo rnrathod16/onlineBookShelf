@@ -42,5 +42,4 @@ public interface Service_Declarations {
 //	public List<Books> searchBook(String general);
 	public List<Wishlist> displayWishList();
 	
-	
 }

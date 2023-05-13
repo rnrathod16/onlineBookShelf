@@ -32,7 +32,8 @@ public class Service_Implementation implements Service_Declarations{
 	private OrdersRepository or;
 	private BookreviewsRepository brw;
 	@Autowired
-	public Service_Implementation(BooksRepository br,UserRepository ur,OrdersRepository or,WishlistRepository wl,BookreviewsRepository brw) {
+
+	Service_Implementation(BooksRepository br,UserRepository ur,OrdersRepository or,WishlistRepository wl,BookreviewsRepository brw) {
 
 		this.br=br;
 		this.ur=ur;
@@ -131,8 +132,7 @@ public class Service_Implementation implements Service_Declarations{
 		// TODO Auto-generated method stub
 		return wl.findAll();
 	}
-	
-	
+
 	@Override
 	@Transactional
 	public List<Users> displayUsers() {
