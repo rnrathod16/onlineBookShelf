@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.Bookreview;
 import com.example.demo.entity.Books;
-
+import com.example.demo.entity.Categories;
 import com.example.demo.entity.Wishlist;
 
 import com.example.demo.entity.Orders;
@@ -40,18 +41,33 @@ public class Shop_Controller {
 	public List<Books> findAll(){
 		return si.displayBooks();
 	}
+	
+	@PostMapping("list")
+	public void insertBook(@RequestBody Books br )
+	{
+		br.setBid(0);
+		si.addBook(br);
+		
+	}
+	@PostMapping("list1")
+	public void insertByCategories(@RequestBody Books br )
+	{
+		br.setBid(0);
+		
+		si.addBook(br);
+	}
 
 	
-	@DeleteMapping("list/{deleteid}")
-	public void deleteBook(@PathVariable("deleteid") int id) {
-		si.deleteBookById(id);
-	}
-	
-//	@PostMapping("wish")
-//	public void addWishList(@RequestBody Wishlist wl) {
-//		
-//		si.addWishlistById(wl);		
+//	@DeleteMapping("list/{deleteid}")
+//	public void deleteBook(@PathVariable("deleteid") int id) {
+//		si.deleteBookById(id);
 //	}
+	
+	@PostMapping("wish")
+	public void addWishList(@RequestBody Wishlist wl) {
+		
+		si.addToWishlist(wl);		
+	}
 	
 	@GetMapping("wish")
 	public List<Wishlist> findAllwish(){
@@ -93,5 +109,41 @@ public class Shop_Controller {
 	@GetMapping("booksbycategories/{cat}")
 	public List<Books> getByCategory(@PathVariable("cat") int cat){
 		return si.searchByCategory(cat);
+	}
+	
+	@PutMapping("updateStock")
+	public void updateStock(@RequestBody Books b) {
+		si.addStockToBooks(b.getBstock(), b.getBid());
+	}
+
+	@GetMapping("bookByName/{name}")
+	public List<Books> getByName(@PathVariable("name")String name)
+	{
+		return si.searchByName(name);
+	}
+	
+	@PostMapping("addReview")
+	public void insertReview(@RequestBody Bookreview br) {
+		 si.addBookReview(br);
+	}
+	
+	@PutMapping("updateReview")
+	public void updateReview(@RequestBody Bookreview br) {
+		 si.updateBookReview(br);
+	}
+	
+//	@DeleteMapping("deleteReview/{id}")
+//	public void deleteReview(@PathVariable("id") int id) {
+//		si.deleteBookReview(id);
+//	}
+	
+	@GetMapping("reviews")
+	public List<Bookreview> displayReviews(){
+		return si.disaplayBookReviews();
+	}
+	
+	@PostMapping("insertCatogery")
+	public void insertCatogery(@RequestBody Categories categories) {
+		si.addCategory(categories);
 	}
 }
