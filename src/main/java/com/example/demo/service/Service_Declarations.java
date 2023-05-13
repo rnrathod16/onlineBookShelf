@@ -11,7 +11,7 @@ import com.example.demo.entity.Wishlist;
 
 public interface Service_Declarations {
 	
-	public boolean login(String uemail, String upassword);
+	public Users login(String uemail, String upassword);
 	public void register(Users user);
 	
 	//Admin

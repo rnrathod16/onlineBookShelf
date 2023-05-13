@@ -47,13 +47,10 @@ public class Service_Implementation implements Service_Declarations{
 
 	@Override
 	@Transactional
-	public boolean login(String uemail, String upassword) {
+	public Users login(String uemail, String upassword) {
 		// TODO Auto-generated method stub
-		Users u = ur.checkLogin(uemail, upassword);
-		if(u!=null) {
-			return true;
-		}
-		return false;
+		return ur.checkLogin(uemail, upassword);
+
 	}
 
 	@Override

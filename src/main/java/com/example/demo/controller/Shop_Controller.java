@@ -90,7 +90,7 @@ public class Shop_Controller {
 	}
 	
 	@PostMapping("login")
-	public boolean login(@RequestBody Users user) {
+	public Users login(@RequestBody Users user) {
 		return si.login(user.getUemail(), user.getUpassword());
 	}
 	
