@@ -137,5 +137,16 @@ public class Shop_Controller {
 	public List<Bookreview> displayReviews(){
 		return si.disaplayBookReviews();
 	}
+	
+	@GetMapping("getuserbyid/{id}")
+	public Users getUserById(@PathVariable("id") int uid) {
+		return si.getUserById(uid);
+		
+	}
 
+	@GetMapping("getbookbyid/{id}")
+	public Books getBookById(@PathVariable("id") int uid) {
+		return si.getBookById(uid);
+		
+	}
 }

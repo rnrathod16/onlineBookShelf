@@ -19,6 +19,7 @@ public interface Service_Declarations {
 	public void updateBook(Books book);
 	public void addByCategories(Books book);
 	public List<Books> searchByName(String bname);
+	public Users getUserById(int uid);
 
 	
 	public void deleteBookById(int bid);
@@ -26,6 +27,7 @@ public interface Service_Declarations {
 	
 	public List<Books> searchByCategory(int cid);
 	public void addBookByCategory(Books book, int cid);
+	public Books getBookById(int bid);
 	
 	public void addBookReview(Bookreview br2);
 	public void updateBookReview(Bookreview br);

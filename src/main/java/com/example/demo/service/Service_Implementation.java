@@ -182,6 +182,18 @@ public class Service_Implementation implements Service_Declarations{
 		// TODO Auto-generated method stub
 		return brw.findAll();
 	}
+
+	@Override
+	public Users getUserById(int uid) {
+		// TODO Auto-generated method stub
+		return ur.findById(uid).get();
+	}
+
+	@Override
+	public Books getBookById(int bid) {
+		// TODO Auto-generated method stub
+		return br.findById(bid).get();
+	}
 	
 	
 
