@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import java.awt.print.Book;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +57,11 @@ public class Shop_Controller {
 	public List<Wishlist> findAllwish(){
 		return si.displayWishList();
 	}
+	
+	@DeleteMapping("list/{deleteid}")
+	public void deleteWishList(@PathVariable("deleteid") int id) {
+		si.deleteWishListById(id);
+	}
 
 	@GetMapping("list/users")
 	public List<Users> findAllUsers(){
@@ -88,6 +93,5 @@ public class Shop_Controller {
 	@GetMapping("booksbycategories/{cat}")
 	public List<Books> getByCategory(@PathVariable("cat") int cat){
 		return si.searchByCategory(cat);
-
 	}
 }

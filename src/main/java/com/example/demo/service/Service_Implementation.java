@@ -26,6 +26,7 @@ public class Service_Implementation implements Service_Declarations{
 	private BooksRepository br;
 
 	private WishlistRepository wl;
+	
 	@Autowired
 	public Service_Implementation(BooksRepository br,WishlistRepository wl) {
 
@@ -111,7 +112,6 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
-
 	@Transactional
 	public void addWishlistById(Wishlist wishlist) {
 		// TODO Auto-generated method stub
@@ -135,6 +135,14 @@ public class Service_Implementation implements Service_Declarations{
 	public List<Orders> historyOfOrders(int uid) {
 		// TODO Auto-generated method stub
 		return or.orderHistory(uid);
+	}
+
+	@Override
+	@Transactional
+	public void deleteWishListById(int wid) {
+		// TODO Auto-generated method stub
+		wl.deleteById(wid);
+		
 	}
 
 
