@@ -20,11 +20,15 @@ public class Users {
 	    @Column(name = "upassword")
 	    private String upassword;
 	    
-	    @Column(name = "umobile")
+
+		@Column(name = "umobile")
 	    private String umobile;
 	    
 	    @Column(name = "ucountry")
 	    private String ucountry;
+	    
+	    @Column(name = "isadmin")
+	    private String isadmin = "false";
 	    
 		@OneToMany(mappedBy="wi")
 		private Set<Wishlist> wish2;
@@ -53,7 +57,7 @@ public class Users {
 		}
 
 
-		public Users(int uid, String uname, String uemail, String upassword, String umobile, String ucountry) {
+		public Users(int uid, String uname, String uemail, String upassword, String umobile, String ucountry,String isadmin) {
 			super();
 			this.uid = uid;
 			this.uname = uname;
@@ -61,6 +65,7 @@ public class Users {
 			this.upassword = upassword;
 			this.umobile = umobile;
 			this.ucountry = ucountry;
+			this.isadmin = isadmin;
 		}
 
 
@@ -122,13 +127,24 @@ public class Users {
 		public void setUcountry(String ucountry) {
 			this.ucountry = ucountry;
 		}
+		
+	    public String getIsadmin() {
+			return isadmin;
+		}
+
+
+		public void setIsadmin(String isadmin) {
+			this.isadmin = isadmin;
+		}
 
 
 		@Override
 		public String toString() {
 			return "Users [uid=" + uid + ", uname=" + uname + ", uemail=" + uemail + ", upassword=" + upassword
-					+ ", umobile=" + umobile + ", ucountry=" + ucountry + "]";
+					+ ", umobile=" + umobile + ", ucountry=" + ucountry + ", isadmin=" + isadmin + "]";
 		}
+
+
 		
 		
 }

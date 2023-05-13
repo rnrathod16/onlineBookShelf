@@ -26,11 +26,10 @@ public class Categories {
 	@OneToMany(mappedBy = "bc")
 	private Set<Books> Cbooks;
 
-	public Categories(int cid, String cname, Set<Books> books) {
+	public Categories(int cid, String cname) {
 		super();
 		this.cid = cid;
 		this.cname = cname;
-		this.Cbooks = books;
 	}
 
 	public Categories() {
@@ -54,18 +53,12 @@ public class Categories {
 		this.cname = cname;
 	}
 
-	public Set<Books> getBooks() {
-		return Cbooks;
-	}
-
-	public void setBooks(Set<Books> books) {
-		this.Cbooks = books;
-	}
 
 	@Override
 	public String toString() {
-		return "Categories [cid=" + cid + ", cname=" + cname + ", books=" + Cbooks + "]";
+		return "Categories [cid=" + cid + ", cname=" + cname + ", books=" ;
 	}
+
 	
 	
 	

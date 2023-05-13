@@ -6,16 +6,15 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import com.example.demo.entity.Bookreview;
 import com.example.demo.entity.Books;
+import com.example.demo.entity.Categories;
 import com.example.demo.entity.Orders;
 import com.example.demo.entity.Users;
 import com.example.demo.entity.Wishlist;
 import com.example.demo.persistance.BookreviewsRepository;
 import com.example.demo.persistance.BooksRepository;
-
+import com.example.demo.persistance.CategoriesRepository;
 import com.example.demo.persistance.WishlistRepository;
 
 import com.example.demo.persistance.OrdersRepository;
@@ -28,36 +27,35 @@ public class Service_Implementation implements Service_Declarations{
 	
 	private BooksRepository br;
 	private WishlistRepository wl;
+	private CategoriesRepository cr;
 	private UserRepository ur;
 	private OrdersRepository or;
 	private BookreviewsRepository brw;
+	
 	@Autowired
-
-	Service_Implementation(BooksRepository br,UserRepository ur,OrdersRepository or,WishlistRepository wl,BookreviewsRepository brw) {
+	Service_Implementation(BooksRepository br,UserRepository ur,OrdersRepository or,WishlistRepository wl,BookreviewsRepository brw,CategoriesRepository cr) {
 
 		this.br=br;
 		this.ur=ur;
 		this.or=or;
 		this.wl=wl;
 		this.brw=brw;
+		this.cr=cr;
 	}
 
 	@Override
 	@Transactional
-	public boolean login(String uemail, String upassword) {
+	public Users login(String uemail, String upassword) {
 		// TODO Auto-generated method stub
-		Users u = ur.checkLogin(uemail, upassword);
-		if(u!=null) {
-			return true;
-		}
-		return false;
+		return ur.checkLogin(uemail, upassword);
+
 	}
 
 	@Override
 	@Transactional
-	public void register(Users user) {
+	public Users register(Users user) {
 		// TODO Auto-generated method stub
-		ur.save(user);
+		return ur.save(user);
 	}
 
 	@Override
@@ -92,12 +90,12 @@ public class Service_Implementation implements Service_Declarations{
 
 	@Override
 	@Transactional
-	public void addStockToBooks(int q, int bid) 
+	public void addStockToBooks(int q,int bid) 
 	{
 		// TODO Auto-generated method stub
-		br.addStockToBook(q,bid);
-		
+		br.addStockToBook(q, bid);
 	}
+
 
 	@Override
 	@Transactional
@@ -121,7 +119,7 @@ public class Service_Implementation implements Service_Declarations{
 
 	@Override
 	@Transactional
-	public void addWishlistById(Wishlist wishlist) {
+	public void addToWishlist(Wishlist wishlist) {
 		// TODO Auto-generated method stub
 		wl.save(wishlist);		
 	}
@@ -149,6 +147,14 @@ public class Service_Implementation implements Service_Declarations{
 
 	@Override
 	@Transactional
+
+	public void deleteWishListById(int wid) {
+		// TODO Auto-generated method stub
+		wl.deleteById(wid);
+		
+	}
+
+
 	public List<Books> searchByName(String bname) {
 		// TODO Auto-generated method stub
 		return br.findByBname(bname);
@@ -195,7 +201,22 @@ public class Service_Implementation implements Service_Declarations{
 		return br.findById(bid).get();
 	}
 	
+	@Override
+	@Transactional
+	public void addCategory(Categories categories) {
+		cr.save(categories);
+		
+	}
+
+	@Override
+	public int searchUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		System.out.println(ur.searchByEmail(email));
+		return ur.searchByEmail(email);
+	}
+
 	
+
 
 
 	
