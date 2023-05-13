@@ -22,6 +22,9 @@ public interface BooksRepository extends JpaRepository<Books, Integer>
 
 
 	public List<Books> findByBname(String bname);
+	
+	@Query("from Books where bstatus = ?1")
+	public List<Books> bookStatusFreePaid(String bstatus);
 
 
 	

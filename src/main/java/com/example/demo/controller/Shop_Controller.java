@@ -163,5 +163,10 @@ public class Shop_Controller {
 		si.addCategory(categories);
 	}
 	
+	@PostMapping("bookstatus")
+	public List<Books> bookStatusFreePaid(@RequestBody Books book){
+		return si.bookStatusFreePaid(book.getBstatus());
+	}
+	
 
 }
