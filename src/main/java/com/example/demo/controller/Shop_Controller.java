@@ -85,8 +85,8 @@ public class Shop_Controller {
 	}
 	
 	@PostMapping("list/users")
-	public void insert(@RequestBody Users user) {
-		 si.register(user);
+	public Users insert(@RequestBody Users user) {
+		 return si.register(user);
 	}
 	
 	@PostMapping("login")

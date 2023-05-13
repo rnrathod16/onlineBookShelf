@@ -12,7 +12,7 @@ import com.example.demo.entity.Wishlist;
 public interface Service_Declarations {
 	
 	public Users login(String uemail, String upassword);
-	public void register(Users user);
+	public Users register(Users user);
 	
 	//Admin
 	public List<Books> displayBooks();

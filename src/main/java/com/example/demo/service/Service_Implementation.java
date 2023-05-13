@@ -55,9 +55,9 @@ public class Service_Implementation implements Service_Declarations{
 
 	@Override
 	@Transactional
-	public void register(Users user) {
+	public Users register(Users user) {
 		// TODO Auto-generated method stub
-		ur.save(user);
+		return ur.save(user);
 	}
 
 	@Override
