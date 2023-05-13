@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.Bookreview;
 import com.example.demo.entity.Books;
 
 import com.example.demo.entity.Wishlist;
@@ -109,5 +110,31 @@ public class Shop_Controller {
 	@PutMapping("updateStock")
 	public void updateStock(@RequestBody Books b) {
 		si.addStockToBooks(b.getBstock(), b.getBid());
+	}
+
+	@GetMapping("bookByName/{name}")
+	public List<Books> getByName(@PathVariable("name")String name)
+	{
+		return si.searchByName(name);
+	}
+	
+	@PostMapping("addReview")
+	public void insertReview(@RequestBody Bookreview br) {
+		 si.addBookReview(br);
+	}
+	
+	@PutMapping("updateReview")
+	public void updateReview(@RequestBody Bookreview br) {
+		 si.updateBookReview(br);
+	}
+	
+//	@DeleteMapping("deleteReview/{id}")
+//	public void deleteReview(@PathVariable("id") int id) {
+//		si.deleteBookReview(id);
+//	}
+	
+	@GetMapping("reviews")
+	public List<Bookreview> displayReviews(){
+		return si.disaplayBookReviews();
 	}
 }

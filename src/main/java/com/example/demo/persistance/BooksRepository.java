@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+
 import com.example.demo.entity.Books;
 
 public interface BooksRepository extends JpaRepository<Books, Integer> 
@@ -18,6 +19,10 @@ public interface BooksRepository extends JpaRepository<Books, Integer>
 	public void addStockToBook(int quantity,int bid);
 
 	public List<Books> findByCid(int cid);
+
+
+	public List<Books> findByBname(String bname);
+
 
 	
 
