@@ -63,7 +63,7 @@ public class Shop_Controller {
 //		si.deleteBookById(id);
 //	}
 	
-	@PostMapping("wish")
+	@PostMapping("/wish")
 	public void addWishList(@RequestBody Wishlist wl) {
 		
 		si.addToWishlist(wl);		
@@ -74,7 +74,7 @@ public class Shop_Controller {
 		return si.displayWishList();
 	}
 	
-	@DeleteMapping("list/{deleteid}")
+	@DeleteMapping("wishlist/{deleteid}")
 	public void deleteWishList(@PathVariable("deleteid") int id) {
 		si.deleteWishListById(id);
 	}
@@ -161,6 +161,16 @@ public class Shop_Controller {
 	@PostMapping("insertCatogery")
 	public void insertCatogery(@RequestBody Categories categories) {
 		si.addCategory(categories);
+	}
+	
+	@PostMapping("bookstatus")
+	public List<Books> bookStatusFreePaid(@RequestBody Books book){
+		return si.bookStatusFreePaid(book.getBstatus());
+	}
+	
+	@GetMapping("list/categories")
+	public List<Categories> getAllCategories(){
+		return si.getAllCategories();
 	}
 	
 	@GetMapping("/searchBooks/{bdetail}")

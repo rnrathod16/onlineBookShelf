@@ -150,7 +150,7 @@ public class Service_Implementation implements Service_Declarations{
 
 	public void deleteWishListById(int wid) {
 		// TODO Auto-generated method stub
-		wl.deleteById(wid);
+		wl.deleteByBookId(wid);
 		
 	}
 
@@ -216,6 +216,20 @@ public class Service_Implementation implements Service_Declarations{
 		return ur.searchByEmail(email);
 	}
 
+	@Override
+	@Transactional
+	public List<Books> bookStatusFreePaid(String bstatus) {
+		// TODO Auto-generated method stub
+		return br.bookStatusFreePaid(bstatus);
+	}
+
+	@Override
+	@Transactional
+	public List<Categories> getAllCategories() {
+		// TODO Auto-generated method stub
+		return cr.findAll();
+	}
+	
 	@Override
 	@Transactional
 	public List<Books> searchForBook(String bdetail) {

@@ -40,6 +40,7 @@ public interface Service_Declarations {
 	
 
 	public void addToWishlist(Wishlist wishlist);
+	public List<Categories> getAllCategories();
 
 	//Users
 	public List<Users> displayUsers();
@@ -49,5 +50,6 @@ public interface Service_Declarations {
 	public List<Wishlist> displayWishList();
 	public void deleteWishListById(int wid);
 	public int searchUserByEmail(String email);
+	public List<Books> bookStatusFreePaid(String bstatus);
 	
 }

@@ -22,8 +22,13 @@ public interface BooksRepository extends JpaRepository<Books, Integer>
 
 
 	public List<Books> findByBname(String bname);
-	
+
+	@Query("from Books where bstatus = ?1")
+	public List<Books> bookStatusFreePaid(String bstatus);
+
 	String s2="select * from books where bname=:bdetail  or bauthor=:bdetail or cid in (select cid from categories where cname=:bdetail);";
+//	String s2 ="select * from books where bname like \"%:bdetail%\"  or bauthor like \"%:bdetail%\" or cid in (select cid from categories where cname =:bdetail);";
+
 	@Query(value =s2, nativeQuery = true)
 	public List<Books> getBook(String bdetail);
 
