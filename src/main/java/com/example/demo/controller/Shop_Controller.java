@@ -168,5 +168,10 @@ public class Shop_Controller {
 		return si.bookStatusFreePaid(book.getBstatus());
 	}
 	
+	@GetMapping("list/categories")
+	public List<Categories> getAllCategories(){
+		return si.getAllCategories();
+	}
+	
 
 }

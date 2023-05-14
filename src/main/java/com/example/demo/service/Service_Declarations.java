@@ -39,6 +39,7 @@ public interface Service_Declarations {
 	
 
 	public void addToWishlist(Wishlist wishlist);
+	public List<Categories> getAllCategories();
 
 	//Users
 	public List<Users> displayUsers();

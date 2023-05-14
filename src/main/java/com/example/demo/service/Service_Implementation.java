@@ -221,6 +221,12 @@ public class Service_Implementation implements Service_Declarations{
 		return br.bookStatusFreePaid(bstatus);
 	}
 
+	@Override
+	public List<Categories> getAllCategories() {
+		// TODO Auto-generated method stub
+		return cr.findAll();
+	}
+
 	
 
 
