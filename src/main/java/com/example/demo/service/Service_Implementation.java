@@ -215,6 +215,12 @@ public class Service_Implementation implements Service_Declarations{
 		return ur.searchByEmail(email);
 	}
 
+	@Override
+	public List<Books> searchForBook(String bdetail) {
+		// TODO Auto-generated method stub
+		return br.getBook(bdetail);
+	}
+
 	
 
 

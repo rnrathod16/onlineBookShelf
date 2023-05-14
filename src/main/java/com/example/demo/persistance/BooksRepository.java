@@ -22,6 +22,10 @@ public interface BooksRepository extends JpaRepository<Books, Integer>
 
 
 	public List<Books> findByBname(String bname);
+	
+	String s2="select * from books where bname=:bdetail  or bauthor=:bdetail or cid in (select cid from categories where cname=:bdetail);";
+	@Query(value =s2, nativeQuery = true)
+	public List<Books> getBook(String bdetail);
 
 
 	

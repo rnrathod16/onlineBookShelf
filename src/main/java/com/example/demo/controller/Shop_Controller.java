@@ -163,5 +163,11 @@ public class Shop_Controller {
 		si.addCategory(categories);
 	}
 	
+	@GetMapping("/searchBooks/{bdetail}")
+	public List<Books> searchForBook(@PathVariable("bdetail") String bdetail)
+	{
+		return si.searchForBook(bdetail);
+	}
+	
 
 }
