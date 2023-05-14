@@ -209,6 +209,7 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public int searchUserByEmail(String email) {
 		// TODO Auto-generated method stub
 		System.out.println(ur.searchByEmail(email));
@@ -216,6 +217,7 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public List<Books> searchForBook(String bdetail) {
 		// TODO Auto-generated method stub
 		return br.getBook(bdetail);
