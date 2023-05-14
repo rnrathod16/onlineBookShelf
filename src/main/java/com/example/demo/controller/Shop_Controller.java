@@ -179,5 +179,11 @@ public class Shop_Controller {
 		return si.searchForBook(bdetail);
 	}
 	
+	@PostMapping("/deletebookbyid")
+	public void deleteBookById(@RequestBody Books book) {
+		System.out.println(book);
+		si.deleteBookById(book.getBid());
+	}
+	
 
 }
