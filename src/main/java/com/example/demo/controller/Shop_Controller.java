@@ -63,7 +63,7 @@ public class Shop_Controller {
 //		si.deleteBookById(id);
 //	}
 	
-	@PostMapping("wish")
+	@PostMapping("/wish")
 	public void addWishList(@RequestBody Wishlist wl) {
 		
 		si.addToWishlist(wl);		
@@ -74,7 +74,7 @@ public class Shop_Controller {
 		return si.displayWishList();
 	}
 	
-	@DeleteMapping("list/{deleteid}")
+	@DeleteMapping("wishlist/{deleteid}")
 	public void deleteWishList(@PathVariable("deleteid") int id) {
 		si.deleteWishListById(id);
 	}

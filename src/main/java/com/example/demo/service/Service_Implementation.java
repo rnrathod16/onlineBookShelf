@@ -150,7 +150,7 @@ public class Service_Implementation implements Service_Declarations{
 
 	public void deleteWishListById(int wid) {
 		// TODO Auto-generated method stub
-		wl.deleteById(wid);
+		wl.deleteByBookId(wid);
 		
 	}
 
