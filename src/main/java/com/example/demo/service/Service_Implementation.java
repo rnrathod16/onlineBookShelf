@@ -209,6 +209,7 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public int searchUserByEmail(String email) {
 		// TODO Auto-generated method stub
 		System.out.println(ur.searchByEmail(email));
@@ -216,15 +217,24 @@ public class Service_Implementation implements Service_Declarations{
 	}
 
 	@Override
+	@Transactional
 	public List<Books> bookStatusFreePaid(String bstatus) {
 		// TODO Auto-generated method stub
 		return br.bookStatusFreePaid(bstatus);
 	}
 
 	@Override
+	@Transactional
 	public List<Categories> getAllCategories() {
 		// TODO Auto-generated method stub
 		return cr.findAll();
+	}
+	
+	@Override
+	@Transactional
+	public List<Books> searchForBook(String bdetail) {
+		// TODO Auto-generated method stub
+		return br.getBook(bdetail);
 	}
 
 	

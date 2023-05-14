@@ -20,6 +20,7 @@ public interface Service_Declarations {
 	public void updateBook(Books book);
 	public void addByCategories(Books book);
 	public List<Books> searchByName(String bname);
+	public List<Books> searchForBook(String bdetail);
 	public Users getUserById(int uid);
 
 	public void addCategory(Categories categories);
