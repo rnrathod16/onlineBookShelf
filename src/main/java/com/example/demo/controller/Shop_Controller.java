@@ -185,5 +185,10 @@ public class Shop_Controller {
 		si.deleteBookById(book.getBid());
 	}
 	
+	@PostMapping("updateuser")
+	public void updateUserData(@RequestBody Users user) {
+		si.updateUserData(user);
+	}
+	
 
 }

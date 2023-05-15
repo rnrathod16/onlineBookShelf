@@ -237,6 +237,13 @@ public class Service_Implementation implements Service_Declarations{
 		return br.getBook(bdetail);
 	}
 
+	@Override
+	@Transactional
+	public void updateUserData(Users user) {
+		// TODO Auto-generated method stub
+		ur.save(user);
+	}
+
 	
 
 
