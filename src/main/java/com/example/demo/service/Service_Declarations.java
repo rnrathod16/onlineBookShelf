@@ -52,4 +52,7 @@ public interface Service_Declarations {
 	public int searchUserByEmail(String email);
 	public List<Books> bookStatusFreePaid(String bstatus);
 	
+	public void addOrder(Orders o);
+	public List<Orders> getAllOrder();
+	
 }

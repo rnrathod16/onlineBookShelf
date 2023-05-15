@@ -185,5 +185,15 @@ public class Shop_Controller {
 		si.deleteBookById(book.getBid());
 	}
 	
+	@PostMapping("insertOrder")
+	public void insertOrder(@RequestBody Orders o) {
+		si.addOrder(o);
+	}
+	
+	@GetMapping("allOrders")
+	public List<Orders> getallOrders()
+	{
+		return si.getAllOrder();
+	}
 
 }

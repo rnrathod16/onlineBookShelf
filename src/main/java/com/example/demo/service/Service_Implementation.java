@@ -237,6 +237,18 @@ public class Service_Implementation implements Service_Declarations{
 		return br.getBook(bdetail);
 	}
 
+	@Override
+	public void addOrder(Orders o) {
+		// TODO Auto-generated method stub
+		or.save(o);
+	}
+
+	@Override
+	public List<Orders> getAllOrder() {
+		// TODO Auto-generated method stub
+		return or.findAll();
+	}
+
 	
 
 

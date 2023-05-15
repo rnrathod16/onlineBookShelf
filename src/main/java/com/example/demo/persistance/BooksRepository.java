@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-
+import org.springframework.data.repository.query.Param;
 
 import com.example.demo.entity.Books;
 
@@ -27,10 +27,13 @@ public interface BooksRepository extends JpaRepository<Books, Integer>
 	public List<Books> bookStatusFreePaid(String bstatus);
 
 	String s2="select * from books where bname=:bdetail  or bauthor=:bdetail or cid in (select cid from categories where cname=:bdetail);";
-//	String s2 ="select * from books where bname like \"%:bdetail%\"  or bauthor like \"%:bdetail%\" or cid in (select cid from categories where cname =:bdetail);";
-
 	@Query(value =s2, nativeQuery = true)
-	public List<Books> getBook(String bdetail);
+	public List<Books> getBook(@Param("bdetail") String bdetail);
+	
+	//String s2 =" from Books where bname like '%?1%'  or bauthor like '%?1%'";
+	//@Query(s2)
+	//public List<Books> getBook(String bdetail);
+	
 
 
 	
