@@ -50,10 +50,10 @@ public class Shop_Controller {
 		
 	}
 	@PostMapping("list1")
-	public void insertByCategories(@RequestBody Books br )
+	public void insertByCategories(@RequestBody Books br,int cid )
 	{
 		br.setBid(0);
-		
+		br.setCid(cid);
 		si.addBook(br);
 	}
 
@@ -161,6 +161,11 @@ public class Shop_Controller {
 	@PostMapping("insertCatogery")
 	public void insertCatogery(@RequestBody Categories categories) {
 		si.addCategory(categories);
+	}
+	
+	@DeleteMapping("categories/{cid}")
+	public void deleteCategory(@PathVariable("cid") int cid) {
+		si.deleteCategory(cid);
 	}
 	
 	@PostMapping("bookstatus")
