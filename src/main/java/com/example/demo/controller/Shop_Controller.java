@@ -163,8 +163,8 @@ public class Shop_Controller {
 		si.addCategory(categories);
 	}
 	
-	@DeleteMapping("category/{deleteid}")
-	public void deleteCategory(@PathVariable("deleteid") int cid) {
+	@DeleteMapping("categories/{cid}")
+	public void deleteCategory(@PathVariable("cid") int cid) {
 		si.deleteCategory(cid);
 	}
 	
