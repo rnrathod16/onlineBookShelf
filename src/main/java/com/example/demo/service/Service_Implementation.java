@@ -109,6 +109,8 @@ public class Service_Implementation implements Service_Declarations{
 	public void addBookByCategory(Books book, int cid) {
 		// TODO Auto-generated method stub
 	}
+	
+	
 
 	@Override
 	@Transactional
@@ -130,6 +132,7 @@ public class Service_Implementation implements Service_Declarations{
 		// TODO Auto-generated method stub
 		return wl.findAll();
 	}
+	
 
 	@Override
 	@Transactional
@@ -206,6 +209,12 @@ public class Service_Implementation implements Service_Declarations{
 	public void addCategory(Categories categories) {
 		cr.save(categories);
 		
+	}
+	
+	@Override
+	@Transactional
+	public void deleteCategory(int cid) {
+		cr.deleteById(cid);
 	}
 
 	@Override

@@ -24,6 +24,7 @@ public interface Service_Declarations {
 	public Users getUserById(int uid);
 
 	public void addCategory(Categories categories);
+	public void deleteCategory(int cid);
 	public void deleteBookById(int bid);
 
 	public void addStockToBooks(int q,int bid);
