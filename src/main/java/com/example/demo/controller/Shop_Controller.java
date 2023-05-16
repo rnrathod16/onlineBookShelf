@@ -50,10 +50,10 @@ public class Shop_Controller {
 		
 	}
 	@PostMapping("list1")
-	public void insertByCategories(@RequestBody Books br )
+	public void insertByCategories(@RequestBody Books br,int cid )
 	{
 		br.setBid(0);
-		
+		br.setCid(cid);
 		si.addBook(br);
 	}
 
@@ -63,7 +63,7 @@ public class Shop_Controller {
 //		si.deleteBookById(id);
 //	}
 	
-	@PostMapping("/wish")
+	@PostMapping("wish")
 	public void addWishList(@RequestBody Wishlist wl) {
 		
 		si.addToWishlist(wl);		
@@ -163,6 +163,11 @@ public class Shop_Controller {
 		si.addCategory(categories);
 	}
 	
+	@DeleteMapping("categories/{cid}")
+	public void deleteCategory(@PathVariable("cid") int cid) {
+		si.deleteCategory(cid);
+	}
+	
 	@PostMapping("bookstatus")
 	public List<Books> bookStatusFreePaid(@RequestBody Books book){
 		return si.bookStatusFreePaid(book.getBstatus());
@@ -173,13 +178,13 @@ public class Shop_Controller {
 		return si.getAllCategories();
 	}
 	
-	@GetMapping("/searchBooks/{bdetail}")
+	@GetMapping("searchBooks/{bdetail}")
 	public List<Books> searchForBook(@PathVariable("bdetail") String bdetail)
 	{
 		return si.searchForBook(bdetail);
 	}
 	
-	@PostMapping("/deletebookbyid")
+	@PostMapping("deletebookbyid")
 	public void deleteBookById(@RequestBody Books book) {
 		System.out.println(book);
 		si.deleteBookById(book.getBid());
