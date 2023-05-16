@@ -13,6 +13,7 @@ public interface Service_Declarations {
 	
 	public Users login(String uemail, String upassword);
 	public Users register(Users user);
+	public Users getUserByEmail(String email);
 	
 	//Admin
 	public List<Books> displayBooks();
@@ -54,6 +55,6 @@ public interface Service_Declarations {
 	public void deleteWishListById(int wid);
 	public int searchUserByEmail(String email);
 	public List<Books> bookStatusFreePaid(String bstatus);
-	public Users getUserByEmail(String email);
+	
 	
 }
