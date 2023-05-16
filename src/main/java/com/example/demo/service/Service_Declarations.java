@@ -23,7 +23,7 @@ public interface Service_Declarations {
 	public List<Books> searchForBook(String bdetail);
 	public Users getUserById(int uid);
 
-	public void addCategory(Categories categories);
+	
 	public void deleteBookById(int bid);
 
 	public void addStockToBooks(int q,int bid);
@@ -31,6 +31,9 @@ public interface Service_Declarations {
 	
 	public List<Books> searchByCategory(int cid);
 	public void addBookByCategory(Books book, int cid);
+	public void addCategory(Categories categories);
+	public void deleteCategory(int cid);
+	public List<Categories> getAllCategories();
 	public Books getBookById(int bid);
 	
 	public void addBookReview(Bookreview br2);
@@ -40,7 +43,7 @@ public interface Service_Declarations {
 	
 
 	public void addToWishlist(Wishlist wishlist);
-	public List<Categories> getAllCategories();
+	
 
 	//Users
 	public List<Users> displayUsers();
