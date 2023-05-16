@@ -28,7 +28,7 @@ public interface Service_Declarations {
 	public void deleteBookById(int bid);
 
 	public void addStockToBooks(int q,int bid);
-
+	public void reduceStocksAfterPurchase(int q,int bid);
 	
 	public List<Books> searchByCategory(int cid);
 	public void addBookByCategory(Books book, int cid);

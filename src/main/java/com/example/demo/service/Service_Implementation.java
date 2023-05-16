@@ -285,4 +285,12 @@ public class Service_Implementation implements Service_Declarations{
 		// TODO Auto-generated method stub
 	}
 
+	@Override
+	@Transactional
+	public void reduceStocksAfterPurchase(int q, int bid) {
+		// TODO Auto-generated method stub
+		br.reduceStocksAfterPurchase(q,bid);
+		
+	}
+
 }

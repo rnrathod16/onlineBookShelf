@@ -13,11 +13,11 @@ public interface BooksRepository extends JpaRepository<Books, Integer>
 {
 	
 	String s1="update Books set bstock =(bstock+?1) where bid=?2";
-	
 	@Modifying
 	@Query(s1)
 	public void addStockToBook(int quantity,int bid);
 
+	
 	public List<Books> findByCid(int cid);
 
 
@@ -29,6 +29,12 @@ public interface BooksRepository extends JpaRepository<Books, Integer>
 	String s2="select * from books where bname=:bdetail  or bauthor=:bdetail or cid in (select cid from categories where cname=:bdetail);";
 	@Query(value =s2, nativeQuery = true)
 	public List<Books> getBook(@Param("bdetail") String bdetail);
+
+	
+	String s3="update Books set bstock =(bstock-?1) where bid=?2";
+	@Modifying
+	@Query(s3)
+	public void reduceStocksAfterPurchase(int q, int bid);
 	
 	//String s2 =" from Books where bname like '%?1%'  or bauthor like '%?1%'";
 	//@Query(s2)

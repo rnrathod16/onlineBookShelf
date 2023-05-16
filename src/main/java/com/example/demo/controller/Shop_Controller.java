@@ -223,4 +223,9 @@ public class Shop_Controller {
 		si.updateWishItem(w);
 	}
 	
+	@PostMapping("reduceStock/{q}/{bid}")
+	public void reduceStockAfterPurchase(@PathVariable("q") int q,@PathVariable("bid") int bid){
+		si.reduceStocksAfterPurchase(q, bid);
+	
+	}
 }
