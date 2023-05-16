@@ -195,5 +195,10 @@ public class Shop_Controller {
 		si.updateUserData(user);
 	}
 	
+	@PostMapping("getuserbyemail")
+	public Users getUserByEmail(@RequestBody Users user){
+		return si.getUserByEmail(user.getUemail());
+	}
+	
 
 }

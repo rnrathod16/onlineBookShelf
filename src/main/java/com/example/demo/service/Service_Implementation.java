@@ -255,4 +255,11 @@ public class Service_Implementation implements Service_Declarations{
 		ur.save(user);
 	}
 
+	@Override
+	@Transactional
+	public Users getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return ur.getByEmail(email);
+	}
+
 }
