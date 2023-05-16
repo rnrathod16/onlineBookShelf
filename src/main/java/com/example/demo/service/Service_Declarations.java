@@ -43,15 +43,16 @@ public interface Service_Declarations {
 	
 
 	public void addToWishlist(Wishlist wishlist);
-	
+	public Wishlist getBookInWishlist(int bid, int uid);
+	public void updateWishItem(Wishlist w);
 
 	//Users
 	public List<Users> displayUsers();
 	public List<Orders> historyOfOrders(int uid); 
-
+	public void updateUserData(Users user);
 //	public List<Books> searchBook(String general);
-	public List<Wishlist> displayWishList();
-	public void deleteWishListById(int wid);
+	public List<Wishlist> displayWishList(int uid);
+	public void deleteWishListById(int bid,int uid);
 	public int searchUserByEmail(String email);
 	public List<Books> bookStatusFreePaid(String bstatus);
 	

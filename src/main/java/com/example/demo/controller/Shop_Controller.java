@@ -69,14 +69,14 @@ public class Shop_Controller {
 		si.addToWishlist(wl);		
 	}
 	
-	@GetMapping("wish")
-	public List<Wishlist> findAllwish(){
-		return si.displayWishList();
+	@GetMapping("wish/{uid}")
+	public List<Wishlist> findAllwish(@PathVariable("uid") int uid){
+		return si.displayWishList(uid);
 	}
 	
-	@DeleteMapping("wishlist/{deleteid}")
-	public void deleteWishList(@PathVariable("deleteid") int id) {
-		si.deleteWishListById(id);
+	@DeleteMapping("wishlist/{bid}/{uid}")
+	public void deleteWishList(@PathVariable("bid") int bid,@PathVariable("uid") int uid) {
+		si.deleteWishListById(bid,uid);
 	}
 
 	@GetMapping("list/users")
@@ -190,6 +190,7 @@ public class Shop_Controller {
 		si.deleteBookById(book.getBid());
 	}
 	
+
 	@PostMapping("insertOrder")
 	public void insertOrder(@RequestBody Orders o) {
 		si.addOrder(o);
@@ -201,4 +202,20 @@ public class Shop_Controller {
 		return si.getAllOrder();
 	}
 
+	@PostMapping("updateuser")
+	public void updateUserData(@RequestBody Users user) {
+		si.updateUserData(user);
+	}
+	
+	@GetMapping("singleBookInWishList/{bid}/{uid}")
+	public Wishlist getBookInWishlist(@PathVariable("bid")int bid,@PathVariable("uid")int uid) {
+		return si.getBookInWishlist(bid, uid);
+	}
+	
+	@PutMapping("updateWishItem")
+	public void updateWishItem(@RequestBody Wishlist w) {
+		si.updateWishItem(w);
+	}
+	
+	
 }
