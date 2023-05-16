@@ -48,7 +48,7 @@ public interface Service_Declarations {
 	//Users
 	public List<Users> displayUsers();
 	public List<Orders> historyOfOrders(int uid); 
-
+	public void updateUserData(Users user);
 //	public List<Books> searchBook(String general);
 	public List<Wishlist> displayWishList();
 	public void deleteWishListById(int wid);
