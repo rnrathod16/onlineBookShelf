@@ -129,9 +129,9 @@ public class Service_Implementation implements Service_Declarations{
 
 	@Override
 	@Transactional
-	public List<Wishlist> displayWishList() {
+	public List<Wishlist> displayWishList(int uid) {
 		// TODO Auto-generated method stub
-		return wl.findAll();
+		return wl.getUsersCart(uid);
 	}
 	
 
@@ -152,9 +152,9 @@ public class Service_Implementation implements Service_Declarations{
 	@Override
 	@Transactional
 
-	public void deleteWishListById(int wid) {
+	public void deleteWishListById(int bid,int uid) {
 		// TODO Auto-generated method stub
-		wl.deleteByBookId(wid);
+		wl.deleteByBookIdAndUserId(bid,uid);
 		
 	}
 
@@ -247,8 +247,19 @@ public class Service_Implementation implements Service_Declarations{
 		// TODO Auto-generated method stub
 		return br.getBook(bdetail);
 	}
+	
+	@Override
+	public void addOrder(Orders o) {
+		// TODO Auto-generated method stub
+		or.save(o);
+	}
 
 	@Override
+	public List<Orders> getAllOrder() {
+		// TODO Auto-generated method stub
+		return or.findAll();
+	}
+	
 	@Transactional
 	public void updateUserData(Users user) {
 		// TODO Auto-generated method stub
@@ -260,6 +271,18 @@ public class Service_Implementation implements Service_Declarations{
 	public Users getUserByEmail(String email) {
 		// TODO Auto-generated method stub
 		return ur.getByEmail(email);
+	}
+	public Wishlist getBookInWishlist(int bid,int uid) {
+		// TODO Auto-generated method stub
+		return wl.getWishByBookId(bid,uid);
+	}
+
+	@Override
+	@Transactional
+	public void updateWishItem(Wishlist w) 
+	{
+		wl.save(w);
+		// TODO Auto-generated method stub
 	}
 
 }

@@ -1,7 +1,5 @@
 package com.example.demo.entity;
 
-import java.util.Set;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,8 +14,18 @@ public class Wishlist
 	private int uid;
 	@Column(name="bid")
 	private int bid;
+	@Column (name = "quantity")
+	private int quantity;
 	
 	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 	@ManyToOne(targetEntity =Books.class,fetch = FetchType.EAGER)
 	@JoinColumn(name="bid",insertable = false,updatable = false)
 	private Books w;
@@ -50,6 +58,14 @@ public class Wishlist
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getWishid() {
+		return wishid;
+	}
+
+	public void setWishid(int wishid) {
+		this.wishid = wishid;
+	}
+
 	public int getBid() {
 		return bid;
 	}
@@ -68,8 +84,10 @@ public class Wishlist
 
 	@Override
 	public String toString() {
-		return "Wishlist [bid=" + bid + ", uid=" + uid + "]";
+		return "Wishlist [wishid=" + wishid + ", uid=" + uid + ", bid=" + bid + ", quantity=" + quantity + "]";
 	}
+
+	
 	
 	
 	

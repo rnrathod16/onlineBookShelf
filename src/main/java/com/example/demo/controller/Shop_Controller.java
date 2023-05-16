@@ -63,20 +63,20 @@ public class Shop_Controller {
 //		si.deleteBookById(id);
 //	}
 	
-	@PostMapping("/wish")
+	@PostMapping("wish")
 	public void addWishList(@RequestBody Wishlist wl) {
 		
 		si.addToWishlist(wl);		
 	}
 	
-	@GetMapping("wish")
-	public List<Wishlist> findAllwish(){
-		return si.displayWishList();
+	@GetMapping("wish/{uid}")
+	public List<Wishlist> findAllwish(@PathVariable("uid") int uid){
+		return si.displayWishList(uid);
 	}
 	
-	@DeleteMapping("wishlist/{deleteid}")
-	public void deleteWishList(@PathVariable("deleteid") int id) {
-		si.deleteWishListById(id);
+	@DeleteMapping("wishlist/{bid}/{uid}")
+	public void deleteWishList(@PathVariable("bid") int bid,@PathVariable("uid") int uid) {
+		si.deleteWishListById(bid,uid);
 	}
 
 	@GetMapping("list/users")
@@ -178,27 +178,49 @@ public class Shop_Controller {
 		return si.getAllCategories();
 	}
 	
-	@GetMapping("/searchBooks/{bdetail}")
+	@GetMapping("searchBooks/{bdetail}")
 	public List<Books> searchForBook(@PathVariable("bdetail") String bdetail)
 	{
 		return si.searchForBook(bdetail);
 	}
 	
-	@PostMapping("/deletebookbyid")
+	@PostMapping("deletebookbyid")
 	public void deleteBookById(@RequestBody Books book) {
 		System.out.println(book);
 		si.deleteBookById(book.getBid());
 	}
 	
+
+	@PostMapping("insertOrder")
+	public void insertOrder(@RequestBody Orders o) {
+		si.addOrder(o);
+	}
+	
+	@GetMapping("allOrders")
+	public List<Orders> getallOrders()
+	{
+		return si.getAllOrder();
+	}
+
 	@PostMapping("updateuser")
 	public void updateUserData(@RequestBody Users user) {
 		si.updateUserData(user);
 	}
-	
+
 	@PostMapping("getuserbyemail")
 	public Users getUserByEmail(@RequestBody Users user){
 		return si.getUserByEmail(user.getUemail());
 	}
 	
 
+	@GetMapping("singleBookInWishList/{bid}/{uid}")
+	public Wishlist getBookInWishlist(@PathVariable("bid")int bid,@PathVariable("uid")int uid) {
+		return si.getBookInWishlist(bid, uid);
+	}
+	
+	@PutMapping("updateWishItem")
+	public void updateWishItem(@RequestBody Wishlist w) {
+		si.updateWishItem(w);
+	}
+	
 }
